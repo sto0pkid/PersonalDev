@@ -1,4 +1,5 @@
 #!/bin/bash
+
 # "unofficial bash strict mode" from Aaron Maxwell
 # http://redsymbol.net/articles/unofficial-bash-strict-mode/
 #
@@ -32,9 +33,20 @@ apt-get -y upgrade
 # Install packages
 # This is the only content special to this particular image
 # Can we abstract it out?
+# 
+# ca-certificates
+#  * dependency of normal git workflow (SSL in general)
+# git
+#  * desired
+# openssh-client
+#  * desired for sake of making direct ssh connections
+#  * dependency of normal git workflow
+# vim
+#  * preferred tool for viewing/editing files in terminal
 apt-get -y install --no-install-recommends \
- git            \
- openssh-client \
+ ca-certificates     \
+ git                 \
+ openssh-client      \
  vim
 
 # NONDETERMINISTIC ?
